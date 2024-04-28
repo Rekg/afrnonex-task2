@@ -5,7 +5,6 @@ import rain_icon from "../Components/Assets/rain.png";
 import snow_icon from "../Components/Assets/snow.png";
 
 const search = async (setWicon, setWdata, searchInput) => {
-  //   const element = document.getElementsByClassName("cityInput");
   if (searchInput === "") {
     return 0;
   }
@@ -13,18 +12,7 @@ const search = async (setWicon, setWdata, searchInput) => {
   let response = await fetch(url);
   let data = await response.json();
   setWdata(data);
-  // const humidity = document.getElementsByClassName("humidity-percent");
-  // console.log(data);
 
-  // const wind = document.getElementsByClassName("wind-rate");
-  // const temprature = document.getElementsByClassName("weather-temp");
-  // const location = document.getElementsByClassName("weather-location");
-  // humidity[0].innerHTML = data.main.humidity + "%";
-
-  //wind[0].innerHTML = data.wind.speed + "km/hr";
-  //temprature[0].innerHTML = data.main.temp - 273.15 + "c";
-  //console.log("temp: " + Number(temprature[0].innerHTML).toFixed(2));
-  //location[0].innerHTML = data.name;
   if (data.weather) {
     if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
       setWicon(clear_icon);
